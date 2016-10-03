@@ -1,0 +1,18 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<div class="header">
+    <div class="logo">
+        <span><a href="index.html"><img src="images/fly.png" height="150" width="150"></a></span>
+    </div>
+    <div class="main_area">
+
+        <div class="title">НИЧОШНАЯ СОЦСЕТКА</div>
+
+        <ul class="buttons">
+            <li><a class="block" href="/">Логин</a></li>
+            <li><a class="block" href="/registration">Регистрация</a></li>
+            <li><a class="block" href="/main">Главная</a></li>
+            <li><a class="block" href="/info?option=page_missed">Чат</a></li>
+        </ul>
+    </div>
+</div>

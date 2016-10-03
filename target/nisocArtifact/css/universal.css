@@ -1,0 +1,314 @@
+body{
+    background-color: #eaeaea;
+    width: 800px;
+
+    margin: 50px auto auto;
+}
+.header{
+    background-color: white;
+    text-align: center;
+    height: 150px;
+}
+.block{
+    display: inline-block;
+    width: 120px;
+    padding: 20px 5px;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background: #56c2e1;
+    border: 1px solid #3f9db8;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-decoration: none;
+    float: left;
+    margin: 5px;
+}
+.buttons{
+    margin-top: -5px;
+    /*border: 1px solid red;*/
+    list-style-type: none;
+    display: block;
+}
+.block:hover{
+    background: #3f9db8;
+    border: 1px solid rgba(256,256,256,0.75);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.logo{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    /*border: 1px solid red;*/
+}
+.title{
+    /*border: 1px solid red;*/
+    height: 75px;
+    font-family: SimHei, Consolas, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    line-height: 2.2;
+}
+.main_area{
+    /*border: 1px solid red;*/
+    height: 150px;
+    width: 645px;
+    display: inline-block;
+    vertical-align: top
+}
+.main{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+}
+/**********************************************************************
+FORM STYLE
+**********************************************************************/
+.login-form {
+    margin: auto;
+    font-family: "Consolas", "Arial", sans-serif;
+    width: 400px;
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.login-form .login_header {
+    padding: 15px 30px 20px 30px;
+}
+.login-form .login_header h1 {
+    font-family: SimHei, Consolas, sans-serif;;
+    font-weight: 300;
+    font-size: 27px;
+    font-weight: bold;
+    line-height:34px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.login-form .content {
+    text-align: center;
+    padding-bottom: 30px;
+}
+.login-form .content .input {
+    width: 300px;
+    padding: 15px 25px;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 15px;
+    color: grey;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+.login-form .content .password{
+    margin-top: 25px;
+}
+.login-form .content .input:hover {
+    background: rgba(0,120,201,0.2);
+}
+.login-form .content .input:focus {
+    background: #eaeaea;
+    color: black;
+}
+.login-form .footer_form {
+    padding: 25px 50px 25px 50px;
+    overflow: auto;	/*авто-расширение*/
+    background: #eaeaea;
+    border-top: 1px solid #fff;
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+.login-form .footer_form .button {
+    float: right;;	/*расположение*/
+    padding: 11px 29px;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    background: #56c2e1;
+    border: 1px solid #3f9db8;
+    border-radius: 6px;
+    box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+.login-form .footer_form .button:hover {
+    background: #3f9db8;
+    border: 1px solid rgba(256,256,256,0.75);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+.login-form .footer_form .register {
+    text-decoration: none;
+    display: inline-block;
+    float: left;
+    padding-top: 10px;
+    background: none;
+    /*border: 1px solid red;*/
+    cursor: pointer;
+    font-family: Consolas, Arial, sans-serif;;
+    font-size: 20px;
+    color: black;
+}
+.login-form .footer_form .register:hover {
+    color: #3f9db8;
+}
+/* Animation */
+.input, .block, .button, .register, .button_small {
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    outline:none;
+}
+/*********************************************************************
+FOOTER
+**********************************************************************/
+.footer{
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 15px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+}
+.footer_message{
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 300px;
+    background: #eaeaea;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border-radius: 7px;
+}
+.button_small{
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+    margin-top: 10px;
+    padding: 8px 18px;
+    font-family: "Consolas", "Arial", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    background: #56c2e1;
+    border: 1px solid #3f9db8;
+    border-radius: 6px;
+    box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+.button_small:hover{
+    background: #3f9db8;
+    border: 1px solid rgba(256,256,256,0.75);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+.text_simple{
+    line-height: 4;
+    margin-top: 50px;
+    color: grey;
+}
+/*********************************************************************
+INFO
+**********************************************************************/
+.info{
+    margin: auto;
+    font-family: "Consolas", "Arial", sans-serif;
+    width: 600px;
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* BUG - NOT WORKING ! */
+.info h1{
+    font-family: SimHei, Consolas, sans-serif;;
+    font-size: 27px;
+    font-weight: bold;
+    line-height:34px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+/*********************************************************************
+REGISTRATION
+**********************************************************************/
+.register_form{
+    margin: auto;
+    font-family: "Consolas", "Arial", sans-serif;
+    width: 650px;
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.register_form h1{
+    font-family: SimHei, Consolas, sans-serif;;
+    font-size: 27px;
+    font-weight: bold;
+    line-height:34px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.register_form .content {
+    padding-top: 30px;
+    padding-left: 15px;
+}
+.register_form .content .input {
+    display: block;
+    width: 300px;
+    padding: 15px 25px;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 15px;
+    color: grey;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    margin-bottom: 30px;
+}
+.register_form .content .password{
+    margin-top: 25px;
+}
+.register_form .content .input:hover {
+    background: rgba(0,120,201,0.2);
+}
+.register_form .content .input:focus {
+    background: #eaeaea;
+    color: black;
+}
+.register_form .footer_form {
+    padding: 20px 50px 20px 50px;
+    overflow: auto;	/*авто-расширение*/
+    background: #eaeaea;
+    border-top: 1px solid #fff;
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+.register_form .footer_form .button {
+    padding: 20px 29px;
+    font-family: Consolas, Arial, sans-serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    background: #56c2e1;
+    border: 1px solid #3f9db8;
+    border-radius: 6px;
+    box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+.register_form .footer_form .button:hover {
+    background: #3f9db8;
+    border: 1px solid rgba(256,256,256,0.75);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+.entry{
+    display: inline-block;
+    width: 310px;
+    text-align: left;
+}
+.register_form p{
+    margin-left: 10px;
+    margin-top: -5px;
+    text-align: left;
+    color: grey;
+}

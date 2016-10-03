@@ -1,0 +1,75 @@
+<!--
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+-->
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>Registration</servlet-name>
+    <jsp-file>/jsp/Registration.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>Logging</servlet-name>
+    <jsp-file>/jsp/Logging.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>Main</servlet-name>
+    <jsp-file>/jsp/Main.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>Info</servlet-name>
+    <jsp-file>/jsp/Info.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Registration</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Logging</servlet-name>
+    <url-pattern>/logging</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Main</servlet-name>
+    <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Info</servlet-name>
+    <url-pattern>/info</url-pattern>
+  </servlet-mapping>
+
+  <resource-ref>
+    <res-ref-name>jdbc/Library</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+    <res-sharing-scope>Shareable</res-sharing-scope>
+  </resource-ref>
+
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>/index.jsp</url-pattern>
+      <url-pattern>/jsp/Registration.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <include-prelude>/jspf/header_login_registration.jspf</include-prelude>
+      <include-coda>/jspf/footer.jspf</include-coda>
+    </jsp-property-group>
+
+    <jsp-property-group>
+      <url-pattern>/jsp/Main.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <include-prelude>/jspf/header_with_check.jspf</include-prelude>
+      <include-coda>/jspf/footer.jspf</include-coda>
+    </jsp-property-group>
+
+    <jsp-property-group>
+      <url-pattern>/jsp/Info.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <include-prelude>/jspf/header.jspf</include-prelude>
+      <include-coda>/jspf/footer.jspf</include-coda>
+    </jsp-property-group>
+  </jsp-config>
+
+</web-app>

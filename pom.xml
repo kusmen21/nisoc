@@ -1,0 +1,82 @@
+<!-- pom.xml - основной файл, который описывает проект -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- основная информация -->
+  <groupId>nisocGroup</groupId>  <!-- название подразделения или фирмы -->
+  <artifactId>nisocArtifact</artifactId>  <!-- название проекта -->
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version><!-- SNAPSHOT - в разработке -->
+
+  <name>nisoc Artifact Maven Webapp</name><!-- название проекта для человека -->
+  <url>http://maven.apache.org</url><!-- сайт проекта -->
+
+  <!-- зависимости, все библиотеки которые используются в проекте -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope><!-- ??? -->
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.39</version>
+    </dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- содержит информацию по сборке -->
+  <build>
+    <!--<sourceDirectory>/src/main/java</sourceDirectory> -->
+    <!-- <sourceDirectory> определяет, откуда maven будет брать файлы исходного кода. По умолчанию это src/main/java, но вы можете определить, где это вам удобно -->
+    <!-- <resources> и вложенные в неё тэги <resource> определяют, одну или несколько директорий, где хранятся файлы ресурсов. Ресурсы в отличие от файлов исходного кода при сборке просто копируются . Директория по умолчанию src/main/resources -->
+    <finalName>nisocArtifact</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins><!-- имя результирующего war файла -->
+  </build>
+
+</project>
+<!--
+Репозиторий - место где хранятся артефакты
+<home директория>/.m2/repository - мой репозиторий
+http://repo1.maven.org/maven2/ - центральный репозиторий
+<repositories>
+ <repository>
+  <id>my-company-repo</id>
+  <url>http://my-company-site.ru/repo</url>
+</repository>
+</repositories> - добавление своего собственного репозитория для скачивания зависимостей
+
+Фазы сборки:
+compile - Компилирование проекта
+test - Тестирование с помощью JUnit тестов
+package - Создание .jar файла или war, ear в зависимости от типа проекта
+integration-test - Запуск интеграционных тестов
+install - Копирование .jar (war , ear) в локальный репозиторий
+deploy - публикация файла в удалённый репозиторий
+
+если выполнить mvn install, то выполнятся все предшествующие фазы
+дополнительные фазы:
+clean - удаление всех созданных в процессе сборки артефактов: .class, .jar и др. файлов. В простейшем случае результат — просто удаление каталога target
+site - предназначена для создания документации (javadoc+сайт описания проекта)
+
+Профили - для запуска в разных окружениях
+
+
+-->

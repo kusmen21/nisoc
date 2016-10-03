@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nisoc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="nisocArtifact.war">
+      <element id="artifact" artifact-name="nisoc:war exploded" />
+    </root>
+  </artifact>
+</component>
