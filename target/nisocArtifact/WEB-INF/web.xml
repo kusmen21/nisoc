@@ -23,6 +23,10 @@
     <servlet-name>Info</servlet-name>
     <jsp-file>/jsp/Info.jsp</jsp-file>
   </servlet>
+  <servlet>
+    <servlet-name>Users</servlet-name>
+    <jsp-file>/jsp/Users.jsp</jsp-file>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Registration</servlet-name>
@@ -39,6 +43,10 @@
   <servlet-mapping>
     <servlet-name>Info</servlet-name>
     <url-pattern>/info</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Users</servlet-name>
+    <url-pattern>/users</url-pattern>
   </servlet-mapping>
 
   <resource-ref>

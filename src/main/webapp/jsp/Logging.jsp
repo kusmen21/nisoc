@@ -2,7 +2,6 @@
 <%@ page import="exception.UniqueValueException" %>
 <%@ page import="exception.NullValueException" %>
 <%@ page import="exception.UnexpectedException" %>
-<%@ page import="java.io.FileWriter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     request.setCharacterEncoding("UTF-8");
@@ -17,11 +16,6 @@
     String fname = request.getParameter("fname");
     String email = request.getParameter("email");
     String password = request.getParameter("password");
-
-    FileWriter fileWriter = new FileWriter("D:/logging.txt");
-    fileWriter.write(fname);
-    fileWriter.flush();
-    fileWriter.close();
 
     StringBuilder sb = new StringBuilder();
 
@@ -66,7 +60,7 @@
         else
         {
             sb.append("option=error&message=Пользователь с такими email или паролем не найдены");
-            sb.append("&sqlinfo2=email: " + email + " password: " + password);
+            sb.append("&sqlinfo2=email: ").append(email).append(" password: ").append(password);
         }
     }
 

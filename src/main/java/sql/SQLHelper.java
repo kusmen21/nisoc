@@ -76,15 +76,19 @@ public class SQLHelper
             ResultSetMetaData data = rs.getMetaData();
             int columnsCount = data.getColumnCount();
 
-            while (rs.next()) {
-                for (int columnNumber = 1; columnNumber <= columnsCount; columnNumber++) {
-                    String columnName = data.getColumnName(columnNumber);
-                    if (!table.containsKey(columnName)) {
+            boolean isFirstRow = true;
+            while (rs.next()) //get row
+            {
+                for (int columnNumber = 1; columnNumber <= columnsCount; columnNumber++) //go to row columns
+                {
+                    String columnName = data.getColumnName(columnNumber);   //get column name
+                    if (isFirstRow) {
                         List<String> values = new ArrayList<>();
                         table.put(columnName, values);
                     }
-                    table.get(columnName).add(rs.getString(columnNumber));
+                    table.get(columnName).add(rs.getString(columnNumber));  //add value from row and this column
                 }
+                isFirstRow = false;
             }
         }
         catch (Exception e)
@@ -111,6 +115,29 @@ public class SQLHelper
         return sb.toString();
     }
 
+    public static String[][] getResultAsArray(String command)
+    {
+        Map<String, List<String>> table = executeQuery(command);
+        String[][] rezult = null;
+
+        int column = 0;
+        for(Map.Entry<String, List<String>> pair : table.entrySet())
+        {
+            if (rezult == null) {
+                rezult = new String[pair.getValue().size() + 1][table.size()];
+            }
+            rezult[0][column] = pair.getKey();  //updating column
+
+            for (int i = 0; i < pair.getValue().size(); i++)
+            {
+                rezult[i+1][column] = pair.getValue().get(i);
+            }
+            column++;
+        }
+
+        return rezult;
+    }
+
     public static boolean isSomethingFound(String command)
     {
         Map<String, List<String>> table = executeQuery(command);
@@ -120,16 +147,6 @@ public class SQLHelper
     public synchronized static void addUser(String fname, String email, String password)
             throws NullValueException, UniqueValueException, UnexpectedException
     {
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter("D:/helper.txt");
-            fileWriter.write(getResultAsString("SELECT (id) FROM users where email = '" + email + "'"));
-            fileWriter.flush();
-            fileWriter.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
         try
         {
             if (    fname != null & !fname.equals("") &
@@ -141,8 +158,8 @@ public class SQLHelper
                     throw new UniqueValueException();
                 }
 
-                SQLHelper.execute("INSERT INTO users (type, email, password) VALUES " +
-                            "('USER', '" + email + "', '" + password + "')");
+                SQLHelper.execute("INSERT INTO users (type, email, fname, password) VALUES " +
+                            "('USER', '" + email + "', '" + fname + "', '" + password + "')");
 
                 Calendar calendar = Calendar.getInstance();
 
@@ -155,8 +172,8 @@ public class SQLHelper
                 int id = Integer.parseInt(SQLHelper.executeQuery
                         ("SELECT (id) FROM users WHERE email = '" + email + "'").get("id").get(0));
 
-                SQLHelper.execute("INSERT INTO info (info_id, fname, dateOfRegistation) VALUES " +
-                        "('" + id +  "', '" + fname + "', '" + date.toString() + "')");
+                SQLHelper.execute("INSERT INTO info (info_id, dateOfRegistation) VALUES " +
+                        "('" + id +  "', '" + date.toString() + "')");
             }
             else
             {

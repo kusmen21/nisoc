@@ -20,18 +20,18 @@
 <div class="main">
     <div class="info">
         <%
-            if (option.equals("error")) out.println("<h1>Ошибка</h1>");
+            if (option.equals("error")) out.println("<h1>ОШИБКА</h1>");
             if (option.equals("login_success"))
             {
-                out.println("<h1>Вход</h1>");
+                out.println("<h1>ВХОД</h1>");
                 message2 = "Создана ваша сессия длительностью в 30 секунд. Во время жизни сессии вы не можете попасть " +
                         "на страницы регистации и логина. После 30 сек. инактивности " +
-                        "вам нужно будет заного войти";
+                        "вам нужно будет заново войти";
             }
-            if (option.equals("registration_success")) out.println("<h1>Регистрация</h1>");
+            if (option.equals("registration_success")) out.println("<h1>РЕГИСТРАЦИЯ</h1>");
             if (option.equals("page_missed"))
             {
-                out.println("<h1>Страница не существует</h1>");
+                out.println("<h1>СТРАНИЦА НЕ СУЩЕСТВУЕТ</h1>");
                 message = "Такой страницы нет, но она обязательно появится =)";
             }
         %>

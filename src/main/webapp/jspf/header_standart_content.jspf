@@ -2,17 +2,17 @@
 
 <div class="header">
     <div class="logo">
-        <span><a href="index.html"><img src="images/fly.png" height="150" width="150"></a></span>
+        <span><a href="/"><img src="images/fly.png" height="150" width="150"></a></span>
     </div>
     <div class="main_area">
 
-        <div class="title">НИЧОШНАЯ СОЦСЕТКА</div>
+        <div class="title">N I S O C</div>
 
         <ul class="buttons">
             <li><a class="block" href="/">Логин</a></li>
             <li><a class="block" href="/registration">Регистрация</a></li>
             <li><a class="block" href="/main">Главная</a></li>
-            <li><a class="block" href="/info?option=page_missed">Чат</a></li>
+            <li><a class="block" href="/users">Пользователи</a></li>
         </ul>
     </div>
 </div>
