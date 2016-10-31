@@ -2,14 +2,14 @@
 <%@ page import="exception.UniqueValueException" %>
 <%@ page import="exception.NullValueException" %>
 <%@ page import="exception.UnexpectedException" %>
+<%@ page import="beans.User" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="beans.Message" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     request.setCharacterEncoding("UTF-8");
     response.setCharacterEncoding("UTF-8");
 %>
-
-<!-- code to INFO page -->
-<%! String refreshCode = ""; %>
 
 <%
     String option = request.getParameter("option");
@@ -17,31 +17,29 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
 
-    StringBuilder sb = new StringBuilder();
-
     //from registration page
     if (option.equals("registration"))
     {
         try
         {
             SQLHelper.addUser(fname, email, password);
-            sb.append("option=registration_success&message=Вы успешно зарегистрировались!");
+            request.getSession().setAttribute("option", "registration_success");
+            request.getSession().setAttribute("message", "Вы успешно зарегистрировались!");
         }
         catch (UniqueValueException e1)
         {
-            sb.append("option=error&message=Поле Email должно быть уникальным");
-            //out.println("<h1>Поле Email должно быть уникальным</h1>");
-            sb.append("&sqlinfo2=email: " + email + " password: " + password);
+            request.getSession().setAttribute("option", "error");
+            request.getSession().setAttribute("message", "Поле Email должно быть уникальным!");
         }
         catch (NullValueException e2)
         {
-            sb.append("option=error&message=Все поля дожны быть заполнены");
-            //out.println("<h1>Все поля дожны быть заполнены</h1>");
+            request.getSession().setAttribute("option", "error");
+            request.getSession().setAttribute("message", "Все поля дожны быть заполнены!");
         }
         catch (UnexpectedException e3)
         {
-            sb.append("option=error&message=Неизвестная ошибка");
-            //out.println("<h1>Неизвестная ошибка</h1>");
+            request.getSession().setAttribute("option", "error");
+            request.getSession().setAttribute("message", "Неизвестная ошибка");
         }
     }
 
@@ -51,32 +49,42 @@
         if (SQLHelper.isSomethingFound("SELECT id FROM users WHERE email = '" + email +
                 "' AND password = '" + password + "'"))
         {
-            sb.append("option=login_success&message=Вы успешно вошли!");
             //session creating
+            request.getSession().setAttribute("option", "login_success");
+            request.getSession().setAttribute("message", "Вы успешно вошли!");
             request.getSession().setAttribute("email", email);
             request.getSession().setAttribute("isOn", "true");
-            request.getSession().setMaxInactiveInterval(30);
+            request.getSession().setMaxInactiveInterval(60*10);
+
+            //user copy to session
+            request.getSession().setAttribute("user", new User(email));
+
+            //creating messageList
+            LinkedList<Message> messages = new LinkedList<Message>();
+            request.getSession().setAttribute("messages", messages);
         }
         else
         {
-            sb.append("option=error&message=Пользователь с такими email или паролем не найдены");
-            sb.append("&sqlinfo2=email: ").append(email).append(" password: ").append(password);
+            request.getSession().setAttribute("option", "error");
+            request.getSession().setAttribute("message", "Пользователь с такими email или паролем не найдены");
+            //request.getSession().setAttribute("sqlinfo2", "email: " + email + ", password: " + password);
         }
     }
-
+    response.sendRedirect(request.getContextPath() + "/info");
+    //for tests
     //shows user which founded
-    sb.append("&sqlinfo=" + SQLHelper.getResultAsString("SELECT * FROM users WHERE email = '" + email + "'"));
-
-    refreshCode = sb.toString();
+    //sb.append("&sqlinfo=" + SQLHelper.getResultAsString("SELECT * FROM users WHERE email = '" + email + "'"));
+    //request.getSession().setAttribute("sqlinfo", SQLHelper.getResultAsString("SELECT * FROM users WHERE email = '" + email + "'"));
 %>
 
-<!-- reference to INFO -->
+<!-- reference to INFO
 <html>
 <head>
     <meta content="text/html" charset="utf-8" />
     <title>NISOC</title>
-    <meta http-equiv="refresh" content="0;URL=/nisocArtifact/info?<% out.println(refreshCode); %>"/>
+    <meta http-equiv="refresh" content="0;URL=/info"/>
 </head>
 <body>
 </body>
 </html>
+-->

@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% response.setCharacterEncoding("UTF-8"); %>
+<%
+    response.setCharacterEncoding("UTF-8");
+%>
 
 <div class="main">
-    <form name="login-form" class="login-form" action="/logging?option=login" method="post">
+    <form name="login-form" class="login-form" action="<%=request.getContextPath()%>/logging?option=login" method="post">
         <div class="login_header">
             <h1>АВТОРИЗАЦИЯ</h1>
         </div>
@@ -11,7 +13,7 @@
             <input name="password" type="password" class="input password" value="Пароль" onfocus="this.value=''" />
         </div>
         <div class="footer_form">
-            <a class="register" href="/registration">Регистрация</a>
+            <a class="register" href="<%=request.getContextPath()%>/registration">Регистрация</a>
             <input type="submit" name="submit" value="ВОЙТИ" class="button"/>
         </div>
     </form>

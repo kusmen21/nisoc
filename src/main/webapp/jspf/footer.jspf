@@ -3,7 +3,7 @@
     <div class="footer_message">
         Есть предложения? Пишите мне!
         <a class="button_small" href="mailto:kusmen21kda@gmail.com">EMAIL</a>
-        <a class="button_small" href="https://vk.com/id223706330">VK</a>
+        <a class="button_small" href="<%=request.getContextPath()%>/feedback_send">ФИДБЭК</a>
     </div>
     <span class="text_simple">2016 Соцсетка=)</span>
 </div>

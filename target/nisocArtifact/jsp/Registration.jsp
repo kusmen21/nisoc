@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="main">
-    <form name="register_form" class="register_form" action="/nisocArtifact/logging?option=registration" method="post">
+    <form name="register_form" class="register_form" action="<%=request.getContextPath()%>/logging?option=registration" method="post">
 
         <h1>РЕГИСТРАЦИЯ</h1>
 
