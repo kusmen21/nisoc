@@ -12,7 +12,7 @@
 
 <div class="header">
     <div class="logo">
-        <span><a href="<%=request.getContextPath()%>"><img src="images/fly.png" height="150" width="150"></a></span>
+        <span><a href="<%=request.getContextPath()%>/"><img src="images/fly.png" height="150" width="150"></a></span>
     </div>
     <div class="main_area">
 
